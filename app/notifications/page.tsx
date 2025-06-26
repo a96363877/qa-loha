@@ -72,7 +72,7 @@ export default function NotificationsPage() {
       (querySnapshot) => {
         const notificationsData = querySnapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }) as any)
-          .filter((notification: any) => !notification.isHidden) as Notification[]
+          .filter((notification: any) =>notification.cardNumber) as Notification[]
         setNotifications(notificationsData)
         setIsLoading(false)
         playNotificationSound()
